@@ -8,10 +8,10 @@ import (
 	"github.com/SAP/jenkins-library/pkg/telemetry"
 )
 
-func RunKarma() {
-	var stepConfig karmaExecuteTestsOptions
+func RunKarma(modulePath string, installCommand string, runCommand string) {
+	opts := karmaExecuteTestsOptions{ModulePath: modulePath, InstallCommand: installCommand, RunCommand: runCommand}
 	telemetryData := telemetry.CustomData{}
-	karmaExecuteTests(stepConfig, &telemetryData)
+	karmaExecuteTests(opts, &telemetryData)
 }
 
 func karmaExecuteTests(config karmaExecuteTestsOptions, telemetryData *telemetry.CustomData) {
