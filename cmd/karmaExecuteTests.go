@@ -8,6 +8,12 @@ import (
 	"github.com/SAP/jenkins-library/pkg/telemetry"
 )
 
+func RunKarma() {
+	var stepConfig karmaExecuteTestsOptions
+	telemetryData := telemetry.CustomData{}
+	karmaExecuteTests(stepConfig, &telemetryData)
+}
+
 func karmaExecuteTests(config karmaExecuteTestsOptions, telemetryData *telemetry.CustomData) {
 	c := command.Command{}
 	// reroute command output to loging framework
