@@ -12,6 +12,15 @@ var GitCommit string
 // GitTag ...
 var GitTag string
 
+
+// RunVersion just testing
+func RunVersion() {
+	var stepConfig versionOptions
+	telemetryData := telemetry.CustomData{}
+	version(stepConfig, &telemetryData)
+}
+
+
 func version(config versionOptions, telemetryData *telemetry.CustomData) {
 
 	gitCommit, gitTag := "<n/a>", "<n/a>"
