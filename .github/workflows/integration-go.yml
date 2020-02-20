@@ -1,0 +1,24 @@
+name: Go
+
+on:
+  push:
+    branches:
+    - it/*
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/setup-go@v1
+      with:
+        go-version: '1.13.x'
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: build
+      run: CGO_ENABLED=0 go build -o piper && chmod +x piper
+    - name: test
+      env:
+        PIPER_INTEGRATION_GITHUB_TOKEN: ${{secrets.PIPER_INTEGRATION_GITHUB_TOKEN}}
+      run: |
+        export PATH=$PATH:$(pwd)
+        go test -tags=integration ./integration/...
