@@ -10,7 +10,7 @@ spec:
         description: The technical username/password credential for accessing the nexus endpoint.
         type: jenkins
     params:
-      - name: nexusVersion
+      - name: version
         type: string
         description: The nexus Repository Manager version.
         scope:
@@ -28,22 +28,6 @@ spec:
         - STEPS
         mandatory: true
         default:
-      - name: groupId
-        type: string
-        description: Group ID of the artifacts.
-        scope:
-        - PARAMETERS
-        - STAGES
-        - STEPS
-        mandatory: true
-      - name: version
-        type: string
-        description: Version of the artifacts.
-        scope:
-        - PARAMETERS
-        - STAGES
-        - STEPS
-        mandatory: true
       - name: repository
         type: string
         description: Name of the nexus repository.
@@ -53,14 +37,14 @@ spec:
         - STEPS
         mandatory: true
         default:
-      - name: artifacts
+      - name: additionalClassifiers
         type: string
-        description: JSON encoded list of artifact descriptions.
+        description: List of additional classifiers that should be deployed to nexus. Each item is a map of a type and a classifier name.
         scope:
         - PARAMETERS
         - STAGES
         - STEPS
-        mandatory: true
+        mandatory: false
       - name: user
         type: string
         description: User

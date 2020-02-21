@@ -15,6 +15,7 @@ import (
 	piperHttp "github.com/SAP/jenkins-library/pkg/http"
 	"github.com/SAP/jenkins-library/pkg/log"
 	"github.com/SAP/jenkins-library/pkg/telemetry"
+	piperUtils "github.com/SAP/jenkins-library/pkg/piperUtils"
 )
 
 type artifactDescription struct {
@@ -25,6 +26,14 @@ type artifactDescription struct {
 }
 
 func nexusUpload(config nexusUploadOptions, telemetryData *telemetry.CustomData) error {
+	mtaYaml, err := piperUtils.FileExists("mta.yaml")
+	if mtaYaml {
+		upload("foo.mtar")
+		upload("mta.yaml")
+	}
+
+	
+
 	var artifacts []artifactDescription
 	err := json.Unmarshal([]byte(config.Artifacts), &artifacts)
 	if err != nil {
