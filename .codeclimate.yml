@@ -25,6 +25,8 @@ plugins:
       - FIXME
   gofmt:
     enabled: true
+    exclude_patterns:
+      - "**/*_generated*.go"
   golint:
     enabled: true
   govet:
