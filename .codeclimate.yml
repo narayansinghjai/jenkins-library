@@ -1,5 +1,7 @@
 version: "2"
 checks:
+  exclude_patterns:
+    - "**/*_generated*.go"
   return-statements:
     enabled: false
 plugins:
@@ -25,16 +27,10 @@ plugins:
       - FIXME
   gofmt:
     enabled: true
-    exclude_patterns:
-      - "**/*_generated*.go"
   golint:
     enabled: true
-    exclude_patterns:
-      - "**/*_generated*.go"
   govet:
     enabled: true
-    exclude_patterns:
-      - "**/*_generated*.go"
   markdownlint:
     enabled: true
     checks:
