@@ -33,6 +33,8 @@ plugins:
       - "**/*_generated*.go"
   govet:
     enabled: true
+    exclude_patterns:
+      - "**/*_generated*.go"
   markdownlint:
     enabled: true
     checks:
