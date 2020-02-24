@@ -1,7 +1,5 @@
 version: "2"
 checks:
-  exclude_patterns:
-    - "**/*_generated*.go"
   return-statements:
     enabled: false
 plugins:
