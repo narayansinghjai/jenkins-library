@@ -29,6 +29,8 @@ plugins:
       - "**/*_generated*.go"
   golint:
     enabled: true
+    exclude_patterns:
+      - "**/*_generated*.go"
   govet:
     enabled: true
   markdownlint:
