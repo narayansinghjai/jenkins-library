@@ -67,7 +67,7 @@ func getParametersFromConfig(config *mavenExecuteOptions, client http.Downloader
 		}
 		parameters = append(parameters, globalSettingsFileParameter)
 	}
-	// do we need some global state to store that a settings.xml was downloaded and should always be used?
+
 	if config.ProjectSettingsFile != "" {
 		projectSettingsFileParameter := "--settings " + config.ProjectSettingsFile
 		if strings.HasPrefix(config.ProjectSettingsFile, "http") {
