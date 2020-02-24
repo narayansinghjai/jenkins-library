@@ -74,7 +74,7 @@ func (m *mockClient) SetOptions(options piperHttp.ClientOptions) {
 }
 
 func TestGetParameters(t *testing.T) {
-	t.Run("should download projectSettings xml from remote location", func(t *testing.T) {
+	t.Run("should resolve configured parameters and download the settings files", func(t *testing.T) {
 		mockClient := mockClient{shouldFail: false}
 		opts := mavenExecuteOptions{PomPath: "pom.xml", GlobalSettingsFile: "https://mysettings.com", ProjectSettingsFile: "http://myprojectsettings.com", ReturnStdout: false}
 
